@@ -1,3 +1,5 @@
+// const { createElement } = require("react");
+
 document.getElementById("addMoney-btn").addEventListener('click', function () {
     // 1 - Get Bank account Name
     const bankAccount = getValueFromInput('bank-name');
@@ -26,8 +28,29 @@ document.getElementById("addMoney-btn").addEventListener('click', function () {
         alert(`Add Money Successful from 
             ${bankAccount} at 
             ${new Date()}`);
+        
         updateBalance(newBal);
-        console.log('new bal', newBal);
+        //1-> call history section
+        const history = document.getElementById('history-container');
+
+        //2-> create div
+        const newHistory = document.createElement("div");
+
+        // 3-> new div e innerHtml add
+        newHistory.innerHTML = `
+        <div class="transaction-card p-5 bg-base-100">
+        Add Money Successful from 
+            ${bankAccount}, acc-no: ${accountNumber} at 
+            ${new Date()}
+        </div>
+        
+        `;
+
+        // 4-> append kora
+
+        history.append(newHistory);
+
+
     } else {
         alert('wrong pin!');
         return
