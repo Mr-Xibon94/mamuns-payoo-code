@@ -10,9 +10,7 @@ document.getElementById("withdraw-btn").addEventListener('click', function () {
     const cashOutAmount = getValueFromInput("cashout-amount");
 
     //3-GET THE CURRENT BALANCE, VALIDATE
-    const currentBalance = document.getElementById("current-bal");
-    const accCurrentBalance = currentBalance.innerText;
-    console.log(accCurrentBalance);
+    const accCurrentBalance = balanceAmount()
 
     //4-CALCULATE NEW BALANCE 
     const newBalance = Number(accCurrentBalance) - Number(cashOutAmount);
@@ -27,7 +25,7 @@ document.getElementById("withdraw-btn").addEventListener('click', function () {
 
     if (pinInput === '0000') {
         alert('Withdraw Successful.')
-        currentBalance.innerText = newBalance;
+        updateBalance(newBalance);
 
     } else {
         alert('Wrong Pin!');
