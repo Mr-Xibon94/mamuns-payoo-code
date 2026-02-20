@@ -30,9 +30,11 @@ function updateBalance(setBalance){
 function showOnly(id) {
     const addMoney = document.getElementById("add-money");
     const cashOut = document.getElementById("cashout");
+    const history = document.getElementById("history");
 
     addMoney.classList.add('hidden');
     cashOut.classList.add('hidden');
+    history.classList.add('hidden');
 
     const selectedOne = document.getElementById(id);
     selectedOne.classList.remove('hidden');
